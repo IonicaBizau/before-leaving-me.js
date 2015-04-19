@@ -105,7 +105,6 @@
             || c.min_speed < speedY
             || c.ignore
             || c.ignore_move) { return; }
-            console.log(speedY, c.min_speed);
             c.func.call(c, new Cursor(
                 lastMouseX, lastMouseY
               , speedX, speedY
@@ -163,6 +162,8 @@
      * @param {Function} func A function to be called when the user moves the mouse to the top of the page.
      * @param {Number} speed The minimum mouse vertical speed (default: `-200`).
      * @param {Number} delay The number of miliseconds between two moments when we're trying to catch the mouse leave.
+     * @param {Boolean} ignoreLeave Ignore the `mouseleave` event handler.
+     * @param {Boolean} ignoreMove Ignore the `mousemove` event handler.
      * @return {Object} The `blm` object.
      */
     blm.prepare = function (func, speed, delay, ignoreLeave, ignoreMove) {
