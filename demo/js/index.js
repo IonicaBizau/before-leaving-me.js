@@ -4,6 +4,6 @@ window.addEventListener("load", function () {
         return "Hi";
     });
     blm.prepare(function (e) {
-        console.log(">>");
-    }, -10, 500);
+        document.querySelector(".box").classList.add("active");
+    });
 });
