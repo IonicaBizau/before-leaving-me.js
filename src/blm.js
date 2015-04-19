@@ -4,12 +4,14 @@
       , _leaves = []
       ;
 
-    function PrepareElm(func, minSpeed, minY, delay) {
+    function PrepareElm(func, minSpeed, minY, delay, ignoreLeave, ignoreMove) {
         this.func = func;
         this.min_speed = minSpeed === undefined ? -170 : minSpeed;
         this.min_y = minY === undefined ? 200 : minY;
         this.ignore_timeout = delay === undefined ? 1000 : delay;
         this.ignore = false;
+        this.ignore_leave = ignoreLeave;
+        this.ignore_move = ignoreMove;
     }
 
     function LeaveElm(input) {
@@ -45,8 +47,8 @@
       , lastMouseY = null
       ;
 
-
-    this.addEventListener("mouseleave", function (e) {
+    // Catch the mouseleave
+    document.addEventListener("mouseleave", function (e) {
 
         if (e.clientY <= 0) {
             lastMouseY = 0;
@@ -55,7 +57,7 @@
 
         // Check the prepares
         _prepares.forEach(function (c) {
-            if (c.ignore) { return; }
+            if (c.ignore || c.ignore_leave) { return; }
             c.func.call(c, new Cursor(
                 lastMouseX, lastMouseY
               , null, null
@@ -69,7 +71,8 @@
         });
     });
 
-    this.addEventListener("mousemove", function(e) {
+    // Mousemove
+    document.addEventListener("mousemove", function(e) {
 
         if (timestamp === null) {
             timestamp = Date.now();
@@ -99,8 +102,10 @@
         _prepares.forEach(function (c) {
             if (lastMouseY > c.min_y
             || speedY >= 0
-            || c.min_speed > speedY
-            || c.ignore) { return; }
+            || c.min_speed < speedY
+            || c.ignore
+            || c.ignore_move) { return; }
+            console.log(speedY, c.min_speed);
             c.func.call(c, new Cursor(
                 lastMouseX, lastMouseY
               , speedX, speedY
@@ -115,7 +120,7 @@
     });
 
     // Listen for the beforeunload event
-    this.onbeforeunload =function (e) {
+    root.onbeforeunload =function (e) {
         var res = []
           , str = ""
           , i = 0
@@ -160,8 +165,8 @@
      * @param {Number} delay The number of miliseconds between two moments when we're trying to catch the mouse leave.
      * @return {Object} The `blm` object.
      */
-    blm.prepare = function (func, speed, delay) {
-        _prepares.push(new PrepareElm(func, speed, delay));
+    blm.prepare = function (func, speed, delay, ignoreLeave, ignoreMove) {
+        _prepares.push(new PrepareElm(func, speed, delay, ignoreLeave, ignoreMove));
         return blm;
     };
 
