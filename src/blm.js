@@ -27,6 +27,10 @@
         }
     }
 
+    LeaveElm.prototype.run = function (e) {
+        return this.message || this.func.call(this, e) || "";
+    };
+
     function Cursor(x, y, speedX, speedY, dX, dY) {
         this.x = x;
         this.y = y;
@@ -40,6 +44,30 @@
       , lastMouseX = null
       , lastMouseY = null
       ;
+
+
+    this.addEventListener("mouseleave", function (e) {
+
+        if (e.clientY <= 0) {
+            lastMouseY = 0;
+            lastMouseX = e.clientX;
+        }
+
+        // Check the prepares
+        _prepares.forEach(function (c) {
+            if (c.ignore) { return; }
+            c.func.call(c, new Cursor(
+                lastMouseX, lastMouseY
+              , null, null
+              , null, null
+            ));
+            c.ignore = true;
+            c.setTimeout = setTimeout(function () {
+                c.ignore = false;
+                timestamp = null;
+            }, c.ignore_timeout);
+        });
+    });
 
     this.addEventListener("mousemove", function(e) {
 
@@ -73,7 +101,6 @@
             || speedY >= 0
             || c.min_speed > speedY
             || c.ignore) { return; }
-            timestamp = null;
             c.func.call(c, new Cursor(
                 lastMouseX, lastMouseY
               , speedX, speedY
@@ -82,26 +109,29 @@
             c.ignore = true;
             c.setTimeout = setTimeout(function () {
                 c.ignore = false;
+                timestamp = null;
             }, c.ignore_timeout);
         });
     });
 
     // Listen for the beforeunload event
-    this.addEventListener("beforeunload", function (e) {
-
+    this.onbeforeunload =function (e) {
         var res = []
           , str = ""
+          , i = 0
+          , c = null
           ;
 
-        _leaves.forEach(function (c) {
-            res.push((c.func.call(c, e) || "").trim());
-        });
+        for (; i < _leaves.length; ++i) {
+            c = _leaves[i];
+            res.push(c.run(e).trim());
+        }
 
         str = res.filter(Boolean).join("\n");
 
         if (str.trim().length === 0) { return undefined; }
         return str;
-    });
+    };
 
     /**
      * blm
@@ -114,6 +144,7 @@
      */
     function blm(input) {
         _leaves.push(new LeaveElm(input));
+        return blm;
     }
 
     /**
