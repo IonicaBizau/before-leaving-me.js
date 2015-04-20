@@ -1,4 +1,4 @@
-![before-leaving-me.js](http://i.imgur.com/I1s2FwF.png)
+[![before-leaving-me.js](http://i.imgur.com/I1s2FwF.png)](http://ionicabizau.github.io/before-leaving-me.js/)
 
 # `before-leaving-me.js`
 Do things before the user leaves your web page.
