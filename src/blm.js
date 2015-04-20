@@ -11,14 +11,16 @@
       , _leaves = []
       ;
 
-    function PrepareElm(func, minSpeed, minY, delay, ignoreLeave, ignoreMove) {
+    function PrepareElm(func, minSpeed, minY, delay, handlers) {
+        handlers = handlers || [];
         this.func = func;
         this.min_speed = minSpeed === undefined ? -170 : minSpeed;
         this.min_y = minY === undefined ? 200 : minY;
         this.ignore_timeout = delay === undefined ? 1000 : delay;
         this.ignore = false;
-        this.ignore_leave = ignoreLeave;
-        this.ignore_move = ignoreMove;
+        this.ignore_leave = handlers[0];
+        this.ignore_move = handlers[1];
+        this.ignore_blur = handlers[2];
     }
 
     function LeaveElm(input) {
@@ -175,12 +177,11 @@
      * @param {Function} func A function to be called when the user moves the mouse to the top of the page.
      * @param {Number} speed The minimum mouse vertical speed (default: `-200`).
      * @param {Number} delay The number of miliseconds between two moments when we're trying to catch the mouse leave.
-     * @param {Boolean} ignoreLeave Ignore the `mouseleave` event handler.
-     * @param {Boolean} ignoreMove Ignore the `mousemove` event handler.
+     * @param {Array} handlers An array of booleans in this order: `[ignoreLeave, ignoreMove, ignoreBlur]` (e.g. `[true, true, false]`, `[1, 1, 0]`).
      * @return {Object} The `blm` object.
      */
-    blm.prepare = function (func, speed, delay, ignoreLeave, ignoreMove) {
-        _prepares.push(new PrepareElm(func, speed, delay, ignoreLeave, ignoreMove));
+    blm.prepare = function (func, speed, delay, handlers) {
+        _prepares.push(new PrepareElm(func, speed, delay, handlers));
         return blm;
     };
 

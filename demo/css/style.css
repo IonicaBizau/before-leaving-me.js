@@ -13,11 +13,11 @@ h1.mrg-s {
 
 div.box {
     width: 400px;
-    height: 250px;
+    height: 150px;
     position: fixed;
-    display:none;
+    display: none;
     top: 50%;
-    margin-top: -200px;
+    margin-top: -150px;
     left: 50%;
     margin-left: -250px;
     padding: 50px;
@@ -29,7 +29,7 @@ div.box {
 
 .box h1 {
     font-weight: 800;
-    font-size: 3.5em;
+    font-size: 2.5em;
     border-top: 3px solid white;
     border-bottom: 3px solid white;
     margin: 0;
