@@ -1,0 +1,28 @@
+{
+  "name": "before-leaving-me",
+  "version": "1.0.0",
+  "description": "Do thing before the user leaves your web page.",
+  "main": "src/blm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:IonicaBizau/before-leaving-me.js.git"
+  },
+  "keywords": [
+    "blm",
+    "before",
+    "leaving",
+    "me",
+    "webpage",
+    "user",
+    "mouse"
+  ],
+  "author": "Ionică Bizău <bizauionica@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IonicaBizau/before-leaving-me.js/issues"
+  },
+  "homepage": "https://github.com/IonicaBizau/before-leaving-me.js"
+}

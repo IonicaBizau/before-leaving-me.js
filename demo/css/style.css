@@ -1,4 +1,14 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/caiuss/1.0.2/caiuss.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/octicons/2.2.2/octicons.min.css");
+
+footer.bg-black,
+section.bg-black {
+    background-image: url("./bg.png");
+}
+
+h1.mrg-s {
+    margin-left: 0;
+}
 
 div.box {
     background: #c0392b;

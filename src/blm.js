@@ -1,3 +1,10 @@
+/*!
+ * before-leaving-me.js
+ * ====================
+ * Do thing before the user leaves your web page.
+ *
+ * Developed with JavaScript and <3 by Ionică Bizău.
+ * */
 (function (root) {
 
     var _prepares = []

@@ -2,10 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Before Leave Me</title>
+        <title>before-leaving-me.js</title>
         <link rel="stylesheet" href="css/style.css">
         <script src="../src/blm.js"></script>
         <script src="js/index.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
     </head>
     <body>
         <div class="box-container">
@@ -16,11 +18,82 @@
                 </p>
             </div>
         </div>
-        <div class="container">
-            <label for="">
-                <input type="checkbox" name="beforeLeave">
-                Click this to enable/disable page leave alert.
-            </label>
-        </div>
+        <article>
+            <section class="text-center bg-black pad-xl">
+                <div class="pad-xl">
+                    <div class="pad-xl">
+                        <h1 class="mrg-s">before-leaving-me.js</h1>
+                        <p>Do thing before the user leaves your web page.</p>
+                        <p>
+                            <a class="btn bg-white" href="https://github.com/IonicaBizau/before-leaving-me.js/zipball/master">
+                                <span class="octicon octicon-file-zip"></span> Download .zip
+                            </a>
+                            <a class="btn bg-white" href="https://github.com/IonicaBizau/before-leaving-me.js/tarball/master">
+                                 <span class="octicon octicon-cloud-download"></span> Download .tar.gz
+                            </a>
+                            <a class="btn bg-white" href="https://github.com/IonicaBizau/before-leaving-me.js/">
+                                <span class="octicon octicon-octoface"></span>  View on GitHub
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="mrg-xl">
+                <div class="container">
+                    <h1 class="mrg-s">Demo</h1>
+                    <p><em>blm</em> (<em>before-leaving-me.js</em>) creates a global named <em>blm</em>.</p>
+                    <p>The code below will use <em>blm</em> to handle two things:
+                        <ul>
+                            <li>the moment when the user <em>prepares</em> to leave the page</li>
+                            <li>the literal window closing (when the user closes the browser tab)</li>
+                        </ul>
+                        So, just try to close this tab with using the mouse.
+                    </p>
+
+                    <pre>// Listen for the page load
+window.addEventListener("load", function () {
+
+    // Select the box container element
+    var boxContainerEl = document.querySelector(".box-container");
+
+    // *before leaving me* display "Bye bye!"
+    blm("Do you really want to leave?");
+
+    // ...and "Hi", the current minute is odd
+    blm(function (e) {
+        if (new Date().getMinutes() % 2 === 1) {
+            return "BTW, this is an odd minute.";
+        }
+    });
+
+    // When *preparing to leave me* do something
+    blm.prepare(function (e) {
+        boxContainerEl.classList.add("active");
+    });
+
+    // Listen for the Esc key press
+    window.addEventListener("keyup", function (e) {
+        if (e.which === 27) {
+            boxContainerEl.classList.remove("active");
+        }
+    });
+});</pre>
+
+                    <a class="btn bg-black text-center" href="https://github.com/IonicaBizau/before-leaving-me.js/">
+                        <span class="octicon octicon-octoface"></span> Check out the documentation
+                    </a>
+
+
+                    <script>
+                        hljs.highlightBlock(document.querySelector("pre"));
+                    </script>
+                </div>
+            </section>
+        </article>
+        <footer class="bg-black pad-xl text-center">
+            <div class="container">
+                <span class="octicon octicon-code"></span> with JavaScript and <span class="octicon octicon-heart"></span> by <a href="https://twitter.com/IonicaBizau">Ionică Bizău</a>
+            </div>
+        </footer>
     </body>
 </html>
