@@ -2,8 +2,9 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/octicons/2.2.2/octicons.min.css");
 
 footer.bg-black,
-section.bg-black {
-    background-image: url("./bg.png");
+section.bg-black,
+.box {
+    background-image: url("./bg.png") !important;
 }
 
 h1.mrg-s {
@@ -11,13 +12,12 @@ h1.mrg-s {
 }
 
 div.box {
-    background: #c0392b;
     width: 400px;
-    height: 200px;
+    height: 250px;
     position: fixed;
     display:none;
     top: 50%;
-    margin-top: -150px;
+    margin-top: -200px;
     left: 50%;
     margin-left: -250px;
     padding: 50px;
@@ -35,13 +35,13 @@ div.box {
     margin: 0;
 }
 
-.box p {
-    text-align: justify;
-}
-
-
 div.box-container {
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 div.box-container.active,
@@ -1199,13 +1199,4 @@ div.box-container.active div.box {
         -ms-transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);
         transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)
     }
-}
-
-.box-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #2C3E50;
 }
