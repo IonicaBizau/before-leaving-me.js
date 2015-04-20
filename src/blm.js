@@ -184,5 +184,8 @@
         return blm;
     };
 
+    blm._prepares = _prepares;
+    blm._leaves = _leaves;
+
     root.blm = blm;
 })(this);
