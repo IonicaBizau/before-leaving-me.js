@@ -31,7 +31,7 @@ Do something *before leaving me*.
 ##### Return
 - **Object** The `blm` object.
 
-#### `prepare(func, speed, delay, ignoreLeave, ignoreMove)`
+#### `prepare(func, speed, delay, handlers)`
 ...or before *preparing* to leave me. Catch the moment when the user
 moves the mouse in the top side of the page (and most probably wants
 to close the window).
@@ -40,11 +40,11 @@ to close the window).
 - **Function** `func`: A function to be called when the user moves the mouse to the top of the page.
 - **Number** `speed`: The minimum mouse vertical speed (default: `-200`).
 - **Number** `delay`: The number of miliseconds between two moments when we're trying to catch the mouse leave.
-- **Boolean** `ignoreLeave`: Ignore the `mouseleave` event handler.
-- **Boolean** `ignoreMove`: Ignore the `mousemove` event handler.
+- **Array** `handlers`: An array of booleans in this order: `[ignoreLeave, ignoreMove, ignoreBlur]` (e.g. `[true, true, false]`, `[1, 1, 0]`).
 
 ##### Return
 - **Object** The `blm` object.
+
 
 ## How to contribute
 1. File an issue in the repository, using the bug tracker, describing the
