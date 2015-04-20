@@ -30,8 +30,12 @@ div.box {
 }
 
 
+div.box-container {
+    display: none;
+}
 
-div.box.active {
+div.box-container.active,
+div.box-container.active div.box {
     display:block;
     -webkit-animation: form-fly-up 1300ms linear alternate both;
     -ms-animation: form-fly-up 1300ms linear alternate both;
@@ -1187,3 +1191,11 @@ div.box.active {
     }
 }
 
+.box-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #2C3E50;
+}
