@@ -19,10 +19,39 @@
     "user",
     "mouse"
   ],
-  "author": "Ionică Bizău <bizauionica@gmail.com>",
-  "license": "MIT",
+  "author": "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
+  "license": "KINDLY",
   "bugs": {
     "url": "https://github.com/IonicaBizau/before-leaving-me.js/issues"
   },
-  "homepage": "https://github.com/IonicaBizau/before-leaving-me.js"
+  "homepage": "https://github.com/IonicaBizau/before-leaving-me.js",
+  "blah": {
+    "h_img": "http://i.imgur.com/I1s2FwF.png",
+    "h_url": "http://ionicabizau.github.io/before-leaving-me.js/",
+    "installation": [
+      {
+        "h2": "Usage"
+      },
+      {
+        "code": {
+          "language": "html",
+          "content": [
+            "<script src=\"path/to/blm.js\"></script>",
+            "<script>",
+            "blm(\"Do you really want to leave?\");",
+            "blm(function () {",
+            "  if (changesAreSaved) {",
+            "    return undefined;",
+            "  }",
+            "  return \"You have unsaved changes! Do you want to close the window?\";",
+            "});",
+            "blm.prepare(function () {",
+            "  /* do something when the user is preparing to leave the page */",
+            "});",
+            "</script>"
+          ]
+        }
+      }
+    ]
+  }
 }
