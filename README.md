@@ -7,7 +7,7 @@ Do things before the user leaves your web page.
 ## Installation
 
 ```sh
-$ npm i -g before-leaving-me
+$ npm i before-leaving-me
 ```
 
 ## Usage
