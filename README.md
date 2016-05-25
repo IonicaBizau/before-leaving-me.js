@@ -1,7 +1,9 @@
 
 [![before-leaving-me](http://i.imgur.com/I1s2FwF.png)](http://ionicabizau.github.io/before-leaving-me.js/)
 
-# before-leaving-me [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations] [![Version](https://img.shields.io/npm/v/before-leaving-me.svg)](https://www.npmjs.com/package/before-leaving-me) [![Downloads](https://img.shields.io/npm/dt/before-leaving-me.svg)](https://www.npmjs.com/package/before-leaving-me) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
+# before-leaving-me
+
+ [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations] [![AMA](https://img.shields.io/badge/ask%20me-anything-1abc9c.svg)](https://github.com/IonicaBizau/ama) [![Version](https://img.shields.io/npm/v/before-leaving-me.svg)](https://www.npmjs.com/package/before-leaving-me) [![Downloads](https://img.shields.io/npm/dt/before-leaving-me.svg)](https://www.npmjs.com/package/before-leaving-me) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
 
 > Do things before the user leaves your web page.
 
