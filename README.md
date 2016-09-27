@@ -50,7 +50,7 @@ to close the window).
 
 #### Params
 - **Function** `func`: A function to be called when the user moves the mouse to the top of the page.
-- **Number** `speed`: The minimum mouse vertical speed (default: `-200`).
+- **Number** `speed`: The minimum mouse vertical speed (default: `-170`).
 - **Number** `delay`: The number of miliseconds between two moments when we're trying to catch the mouse leave.
 - **Array** `handlers`: An array of booleans in this order: `[ignoreLeave, ignoreMove, ignoreBlur]` (e.g. `[true, true, false]`, `[1, 1, 0]`).
 
