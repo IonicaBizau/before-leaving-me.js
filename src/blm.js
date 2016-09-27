@@ -11,6 +11,16 @@
       , _leaves = []
       ;
 
+    function addEvent(obj, type, fn) {
+	if (obj.attachEvent) {
+	    obj['e'+type+fn] = fn;
+	    obj[type+fn] = function(){obj['e'+type+fn]( window.event );}
+	    obj.attachEvent( 'on'+type, obj[type+fn] );
+	} else {
+	    obj.addEventListener( type, fn, false );
+	}
+    }
+
     function PrepareElm(func, minSpeed, minY, delay, handlers) {
         handlers = handlers || [];
         this.func = func;
@@ -125,13 +135,13 @@
     }
 
     // Catch the mouseleave
-    document.addEventListener("mouseout", handlerPrepares("mouseleave"));
+    addEvent(document, "mouseout", handlerPrepares("mouseleave"));
 
     // On blur
-    root.addEventListener("blur", handlerPrepares("blur"));
+    addEvent(root, "blur", handlerPrepares("blur"));
 
     // Mousemove
-    document.addEventListener("mousemove", handlerPrepares("mousemove"));
+    addEvent(document, "mousemove", handlerPrepares("mousemouse"));
 
     // Listen for the beforeunload event
     root.onbeforeunload =function (e) {
