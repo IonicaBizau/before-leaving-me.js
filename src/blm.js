@@ -125,7 +125,7 @@
     }
 
     // Catch the mouseleave
-    document.addEventListener("mouseleave", handlerPrepares("mouseleave"));
+    document.addEventListener("mouseout", handlerPrepares("mouseleave"));
 
     // On blur
     root.addEventListener("blur", handlerPrepares("blur"));
@@ -175,7 +175,7 @@
      * @name prepare
      * @function
      * @param {Function} func A function to be called when the user moves the mouse to the top of the page.
-     * @param {Number} speed The minimum mouse vertical speed (default: `-200`).
+     * @param {Number} speed The minimum mouse vertical speed (default: `-170`).
      * @param {Number} delay The number of miliseconds between two moments when we're trying to catch the mouse leave.
      * @param {Array} handlers An array of booleans in this order: `[ignoreLeave, ignoreMove, ignoreBlur]` (e.g. `[true, true, false]`, `[1, 1, 0]`).
      * @return {Object} The `blm` object.
