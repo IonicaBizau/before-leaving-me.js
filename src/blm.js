@@ -249,8 +249,8 @@
      * @param {Array} handlers An array of booleans in this order: `[ignoreLeave, ignoreMove, ignoreBlur]` (e.g. `[true, true, false]`, `[1, 1, 0]`).
      * @return {Object} The `blm` object.
      */
-    blm.prepare = function (func, speed, delay, handlers) {
-        _prepares.push(new PrepareElm(func, speed, delay, handlers));
+    blm.prepare = function (func, speed, delay, handlers, minY) {
+        _prepares.push(new PrepareElm(func, speed, minY, delay, handlers));
         return blm;
     };
 
