@@ -141,7 +141,7 @@
     addEvent(root, "blur", handlerPrepares("blur"));
 
     // Mousemove
-    addEvent(document, "mousemove", handlerPrepares("mousemouse"));
+    addEvent(document, "mousemove", handlerPrepares("mousemove"));
 
     // Listen for the beforeunload event
     root.onbeforeunload =function (e) {
