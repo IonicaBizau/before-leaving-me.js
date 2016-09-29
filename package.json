@@ -1,6 +1,6 @@
 {
   "name": "before-leaving-me",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "description": "Do things before the user leaves your web page.",
   "main": "src/blm.js",
   "scripts": {
