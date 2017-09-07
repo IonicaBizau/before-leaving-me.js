@@ -1,6 +1,6 @@
 {
   "name": "before-leaving-me",
-  "version": "1.3.11",
+  "version": "1.3.12",
   "description": "Do things before the user leaves your web page.",
   "main": "src/blm.js",
   "scripts": {
@@ -64,6 +64,9 @@
     "resources/",
     "menu/",
     "cli.js",
-    "index.js"
+    "index.js",
+    "bloggify.js",
+    "bloggify.json",
+    "bloggify/"
   ]
 }
