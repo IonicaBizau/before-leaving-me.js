@@ -17,6 +17,7 @@ $ npm i --save before-leaving-me
 
 
 ## Usage
+
 ```html
 <script src="path/to/blm.js"></script>
 <script>
@@ -32,6 +33,7 @@ blm.prepare(function () {
 });
 </script>
 ```
+
 
 ## :memo: Documentation
 
