@@ -12,7 +12,11 @@
 ## :cloud: Installation
 
 ```sh
-$ npm i --save before-leaving-me
+# Using npm
+npm install --save before-leaving-me
+
+# Using yarn
+yarn add before-leaving-me
 ```
 
 
